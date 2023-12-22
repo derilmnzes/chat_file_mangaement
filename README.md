@@ -27,14 +27,21 @@ Create a .env file in the root of the project and add the following variables:
  ```bash
 DATABASE_URL=mongodb://localhost:27017/interview
 SECRET_TOKEN_KEY=$sdaio&223New*Key
+````
 
  ```bash
 npm run dev
-
+```
 Production
 Build the project and start the server:
+ ```bash
 npm run build
 npm start
+
+```
+
+
+
 
 
   
