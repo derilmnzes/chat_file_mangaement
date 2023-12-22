@@ -14,8 +14,7 @@ This is a Node.js Express project written in TypeScript. It includes a basic set
 
 1. Clone the repository:
 
-   ```bash
-  https://github.com/derilmnzes/chat_file_mangaement_server
+   ```bash https://github.com/derilmnzes/chat_file_mangaement_server
 
 
   cd server
