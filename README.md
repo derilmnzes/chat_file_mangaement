@@ -41,6 +41,19 @@ npm start
 ```
 
 
+Live Demo:
+```bash
+https://chat-app-and-file-mangaement.onrender.com
+```
+
+Front end React application
+```bash
+https://github.com/derilmnzes/chat_and_file_mangaement_client/
+```
+
+
+
+
 
 
 
