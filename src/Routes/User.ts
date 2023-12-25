@@ -7,10 +7,17 @@ import { comparePasswords, generateToken } from "../Helpers/JWT_token";
 import { validateUserTokenMiddleware } from "../Middlewere/validateUserToken";
 import { error } from "console";
 import { sendResponse } from "../Helpers/handle_response";
+const rateLimit = require("express-rate-limit");
 
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, 
+  max: 10, 
+  message: "Too many requests, please try again later",
+});
 const route = express.Router();
 
-route.post("/signin", async (req: Request, res: Response) => {
+route.post("/signin", limiter,async (req: Request, res: Response) => {
   const { name, password }: { name: string; password: string } = req.body;
 
   const response = validateUserInput(name, password);
@@ -40,7 +47,7 @@ route.post("/signin", async (req: Request, res: Response) => {
   });
 });
 
-route.post("/signup", async (req: Request, res: Response) => {
+route.post("/signup", limiter,async (req: Request, res: Response) => {
   try {
     const { name, password }: { name: string; password: string } = req.body;
 

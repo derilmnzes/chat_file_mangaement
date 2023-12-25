@@ -7,6 +7,15 @@ import { sendResponse } from "../Helpers/handle_response";
 import Files from "../Modules/Files";
 import path from "path";
 import { validateUserTokenMiddleware } from "../Middlewere/validateUserToken";
+const rateLimit = require("express-rate-limit");
+
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, 
+  max: 10, 
+  message: "Too many requests, please try again later",
+});
+
 
 const router = express.Router();
 
@@ -15,6 +24,7 @@ const upload = multer({ storage });
 
 router.post(
   "/",
+  limiter,
   validateUserTokenMiddleware,
   upload.single("file"),
   async (req, res) => {
@@ -51,7 +61,7 @@ router.post(
 );
 
 router.put(
-  "/:fileid",
+  "/:fileid",limiter,
   validateUserTokenMiddleware,
   upload.single("file"),
   async (req, res) => {
