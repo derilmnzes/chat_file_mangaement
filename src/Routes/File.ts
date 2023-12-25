@@ -7,7 +7,7 @@ import { sendResponse } from "../Helpers/handle_response";
 import Files from "../Modules/Files";
 import path from "path";
 import { validateUserTokenMiddleware } from "../Middlewere/validateUserToken";
-const rateLimit = require("express-rate-limit");
+import rateLimit from "express-rate-limit";
 
 
 const limiter = rateLimit({

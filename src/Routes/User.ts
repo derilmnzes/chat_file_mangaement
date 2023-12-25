@@ -7,7 +7,7 @@ import { comparePasswords, generateToken } from "../Helpers/JWT_token";
 import { validateUserTokenMiddleware } from "../Middlewere/validateUserToken";
 import { error } from "console";
 import { sendResponse } from "../Helpers/handle_response";
-const rateLimit = require("express-rate-limit");
+import rateLimit  from "express-rate-limit";
 
 
 const limiter = rateLimit({
